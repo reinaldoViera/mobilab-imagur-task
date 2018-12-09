@@ -29,7 +29,7 @@ app.get(ENDPOINT, function (req, res) {
         })
         .catch((err) => {
             res.send({
-                error: err
+                error: err.message
             });
         });
 });
