@@ -1,0 +1,75 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Gallery reducer should add galleries to existing 1`] = `
+Object {
+  "galleries": Object {
+    "gefgegr": Object {
+      "new_more": "fake",
+    },
+    "jehfindcs": Object {
+      "more": "fake",
+    },
+    "khbckdjw": Object {
+      "fake": "data",
+    },
+    "viwuywi": Object {
+      "new_fake": "data",
+    },
+  },
+  "list": Array [
+    "jehfindcs",
+    "khbckdjw",
+    "jehfindcs",
+    "khbckdjw",
+  ],
+  "loading": false,
+  "nextPage": 2,
+}
+`;
+
+exports[`Gallery reducer should avoid "rising" sort if is not section "user" 1`] = `
+Object {
+  "error": false,
+  "galleries": Object {},
+  "list": Array [],
+  "loading": false,
+  "nextPage": 0,
+  "section": "top",
+  "sort": "viral",
+  "viral": false,
+  "window": "day",
+}
+`;
+
+exports[`Gallery reducer should give initial state 1`] = `
+Object {
+  "error": false,
+  "galleries": Object {},
+  "list": Array [],
+  "loading": false,
+  "nextPage": 0,
+  "section": "hot",
+  "sort": "viral",
+  "viral": true,
+  "window": "day",
+}
+`;
+
+exports[`Gallery reducer should replace galleries to existing 1`] = `
+Object {
+  "galleries": Object {
+    "gefgegr": Object {
+      "new_more": "fake",
+    },
+    "viwuywi": Object {
+      "new_fake": "data",
+    },
+  },
+  "list": Array [
+    "jehfindcs",
+    "khbckdjw",
+  ],
+  "loading": false,
+  "nextPage": 0,
+}
+`;
