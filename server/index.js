@@ -1,4 +1,5 @@
 const express = require('express');
+const cors = require('cors');
 const axiosConfig = require('./custom-axios');
 
 const app = express();
@@ -14,7 +15,7 @@ const imgur = axiosConfig(clientId);
 app.use(express.json());
 
 // GET Imgur Requests
-app.get(ENDPOINT, function (req, res) {
+app.get(ENDPOINT, cors(), function (req, res) {
     
     const params = req.body;
     const originalUrl = req.originalUrl;

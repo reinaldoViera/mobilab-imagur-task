@@ -2,9 +2,9 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## Steps to launch the app:
 
-1. Run `npm run build`.
-2. Run `npm run serve`.
-3. Visit [http://localhost:9007](http://localhost:9007).
+1. Run `npm run serve`.
+2. Run `npm start`.
+3. Visit [http://localhost:3000](http://localhost:3000).
 
 ## Available Scripts
 
@@ -15,7 +15,7 @@ In the project directory, you can run:
 Runs the app in the development mode.<br>
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-NOTE: This is for development only. In order to properly run the app, express should be launched with `npm run serve` and axios config on [gallery.actions.js](./src/redux/gallery.actions.js) file, line 7, should be changed.
+NOTE: In order to properly run the app, express should be launched with `npm run serve` too.
 
 ### `npm test`
 
@@ -24,8 +24,8 @@ See [Jest](https://jestjs.io) for more information.
 
 ### `npm run serve`
 
-Launch the app and express server on [http://localhost:9007](http://localhost:9007).<br>
-NOTE: First the app needs to be built with `npm run build`.
+Launch the express server on [http://localhost:9007](http://localhost:9007).<br>
+NOTE: If the web-app needs to be hosted in express too, then run `npm run build` to build the app.
 
 ### `npm run build`
 

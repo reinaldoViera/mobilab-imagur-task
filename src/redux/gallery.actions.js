@@ -3,9 +3,11 @@ import {
 } from './gallery';
 import axios from 'axios';
 
+const ENDPOINT = 'http://localhost:9007/api/imgur/';
+
 const customAxios = axios.create({
-    baseURL: 'api/imgur/', // change with http://localhost:9007/api/imgur/ for development
-    timeout: 10000
+    baseURL: ENDPOINT,
+    timeout: 30000
 });
 
 /**
