@@ -1,8 +1,10 @@
 import React from 'react'
 import Grid from '@material-ui/core/Grid';
 import GalleryCard from './GalleryCard';
-import { CircularProgress, withStyles, Typography, Button } from '@material-ui/core';
+import { withStyles } from '@material-ui/core';
 import PropTypes from 'prop-types';
+import ErrorCmp from './Error';
+import Loading from './Loading';
 
 const imageAdapter = ({ link, images = [], title, description, type }) => {
     let imgUrl, desc, imgTitle, ctype;
@@ -51,19 +53,14 @@ function Gallery({ galleries = [], loadMore, nextPage = 0, loading, classes, err
             }
 
             <div>
-                {
-                    error && !galleries.length && <Typography className={classes.error} component="h1">
-                        Error loading the gallery, please try again
-                    </Typography>
-                }
-                {
-                    loading ? <CircularProgress className={classes.status} /> :
-                        <Button variant="contained" color="primary" className={classes.status}  onClick={() => loadMore(nextPage)}>
-                            {
-                                galleries.length ? 'Load more' : 'Refresh'
-                            }
-                        </Button>
-                }
+                <ErrorCmp className={classes.error} error={error && !galleries.length}>
+                    Error loading the gallery, please try again
+                </ErrorCmp>
+                <Loading className={classes.status} onClick={() => loadMore(nextPage)} loading={loading}>
+                    {
+                        galleries.length ? 'Load more' : 'Refresh'
+                    }
+                </Loading>
             </div>
 
 

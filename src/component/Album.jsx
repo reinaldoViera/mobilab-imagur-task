@@ -1,7 +1,9 @@
 import React from 'react'
 import AlbumImg from './AlbumImg';
 import AlbumDetails from './AlbumDetails';
-import { Button, CircularProgress, Typography, withStyles } from '@material-ui/core';
+import { withStyles } from '@material-ui/core';
+import ErrorCmp from './Error';
+import Loading from './Loading';
 
 const styles = () => ({
   status: {
@@ -23,17 +25,12 @@ function Album({ images = [], ups, downs, score, title, error, loading, refreshA
             {images.map((img) => (<AlbumImg key={img.id} {...img} />))}
           </div> :
           <div>
-            {
-              error && <Typography className={classes.error} component="h1">
-                Error loading the Album, please try again
-                    </Typography>
-            }
-            {
-              loading ? <CircularProgress className={classes.status} /> :
-                <Button variant="contained" color="primary" className={classes.status} onClick={refreshAlbum}>
-                  Refresh
-                </Button>
-            }
+            <ErrorCmp className={classes.error} component="h1" error={error}>
+              Error loading the Album, please try again
+            </ErrorCmp>
+            <Loading className={classes.status} onClick={refreshAlbum} loading={loading}>
+              Refresh
+            </Loading>
           </div>
       }
 
