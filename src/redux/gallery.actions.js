@@ -66,7 +66,7 @@ const _request = (endpoint, success, error, params = {}, onFetchStart = ()=>{}, 
     ).catch((err) => error(err))
 }
 
-export const getGalleries = (success, error, onFetchStart, onFetchEnd, section = 'hot', sort = 'viral', page = 0, window = 'day', showViral = false) => () => {
+export const getGalleries = (success, error, onFetchStart, onFetchEnd, section = 'hot', sort = 'viral', page = 0, window = 'day', showViral = true) => () => {
     _request(`gallery/${section}/${sort}/${window}/${page}`, success, error, { showViral }, onFetchStart, onFetchEnd);
 };
 
