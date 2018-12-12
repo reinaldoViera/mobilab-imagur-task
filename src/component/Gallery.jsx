@@ -1,7 +1,8 @@
 import React from 'react'
 import Grid from '@material-ui/core/Grid';
 import GalleryCard from './GalleryCard';
-import { withStyles } from '@material-ui/core';
+import { withStyles, Fab, Tooltip } from '@material-ui/core';
+import ArrowUpwardRounded from '@material-ui/icons/ArrowUpwardRounded';
 import PropTypes from 'prop-types';
 import ErrorCmp from './Error';
 import Loading from './Loading';
@@ -26,10 +27,16 @@ const imageAdapter = ({ link, images = [], title, description, type }) => {
     }
 }
 
-const styles = () => ({
+const styles = (theme) => ({
     status: {
         left: '40%',
         position: 'relative'
+    },
+    fab: {
+        margin: theme.spacing.unit,
+        position: 'fixed',
+        bottom: theme.spacing.unit * 2,
+        right: theme.spacing.unit * 2,
     },
     error: {
         textAlign: 'center'
@@ -53,6 +60,11 @@ function Gallery({ galleries = [], loadMore, nextPage = 0, loading, classes, err
             }
 
             <div>
+                <Tooltip title="Scroll top" aria-label="Add" placement="top">
+                    <Fab color="primary" aria-label="Add" className={classes.fab} onClick={() => window.scrollTo(0, 0)}>
+                        <ArrowUpwardRounded />
+                    </Fab>
+                </Tooltip>
                 <ErrorCmp className={classes.error} error={error && !galleries.length}>
                     Error loading the gallery, please try again
                 </ErrorCmp>
