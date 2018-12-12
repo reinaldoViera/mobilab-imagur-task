@@ -4,7 +4,7 @@ import {
 import axios from 'axios';
 
 const customAxios = axios.create({
-    baseURL: 'http://localhost:9007/api/imgur/',
+    baseURL: 'api/imgur/', // change with http://localhost:9007/api/imgur/ for development
     timeout: 10000
 });
 

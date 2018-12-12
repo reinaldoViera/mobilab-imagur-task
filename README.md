@@ -1,5 +1,11 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## Steps to launch the app:
+
+1. Run `npm run build`.
+2. Run `npm run serve`.
+3. Visit [http://localhost:9007](http://localhost:9007).
+
 ## Available Scripts
 
 In the project directory, you can run:
@@ -9,13 +15,17 @@ In the project directory, you can run:
 Runs the app in the development mode.<br>
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+NOTE: This is for development only. In order to properly run the app, express should be launched with `npm run serve` and axios config on [gallery.actions.js](./src/redux/gallery.actions.js) file, line 7, should be changed.
 
 ### `npm test`
 
 Launches Jest tests.<br>
 See [Jest](https://jestjs.io) for more information.
+
+### `npm run serve`
+
+Launch the app and express server on [http://localhost:9007](http://localhost:9007).<br>
+NOTE: First the app needs to be built with `npm run build`.
 
 ### `npm run build`
 
