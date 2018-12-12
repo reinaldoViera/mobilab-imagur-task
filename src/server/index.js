@@ -34,4 +34,7 @@ app.get(ENDPOINT, function (req, res) {
         });
 });
 
+// Serving the app build folder
+app.use(express.static('build'));
+
 app.listen(port, () => console.log(`listening on http://localhost:${port}`));
