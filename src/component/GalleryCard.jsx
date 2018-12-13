@@ -16,10 +16,8 @@ const styles = {
         height: '30vw'
     },
     media: {
-        //objectFit: 'cover',
-        width: '100%',
-        backgroundColor: 'black',
-        height: '30vw'
+        margin: 'auto',
+        height: '35vw'
     },
 };
 

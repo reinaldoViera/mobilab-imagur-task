@@ -6,11 +6,9 @@ const styles = {
     card: {
     },
     media: {
-        objectFit: 'cover',
-        width: '100%',
-        backgroundColor: 'black',
-        backgroundSize: 'contain',
-        height: '80vh'
+        height: 'auto',
+        margin: 'auto',
+        maxWidth: '100%',
     },
 };
 
