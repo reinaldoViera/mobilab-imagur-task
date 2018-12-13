@@ -22,7 +22,7 @@ const styles = (theme) => ({
     },
 });
 
-function MyAppBar({ classes, location, history }) {
+export function MyAppBar({ classes, location, history }) {
 
     return (
         <div>
