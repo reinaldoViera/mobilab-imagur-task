@@ -11,14 +11,21 @@ export class AlbumPage extends Component {
         loading: PropTypes.bool,
         error: PropTypes.bool,
     }
+    constructor(){
+        super();
+        this.refreshAlbum = this.refreshAlbum.bind(this);
+    }
     componentDidMount() {
         if (!this.props.data && !this.props.loading) {
-            this.props.fetchAlbum(this.props.match.params.id)
+            this.refreshAlbum();
         }
     }
+    refreshAlbum(){
+        this.props.fetchAlbum(this.props.match.params.id);
+    }
     render() {
-        const { data = {} } = this.props;
-        if (!data.images) {
+        const { data = {}, loading, error } = this.props;
+        if (data.id && !data.images) {
             const images = [{
                 link: data.link,
                 title: data.title,
@@ -27,11 +34,11 @@ export class AlbumPage extends Component {
                 type: data.type
             }]
             return (
-                <Album {...data} images={images}/>
+                <Album {...data} images={images} refreshAlbum={this.refreshAlbum} loading={loading} error={error}/>
             )
         }
         return (
-            <Album {...data} />
+            <Album {...data} refreshAlbum={this.refreshAlbum} loading={loading} error={error}/>
         )
     }
 }

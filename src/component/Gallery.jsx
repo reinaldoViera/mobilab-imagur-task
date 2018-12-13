@@ -1,13 +1,22 @@
 import React from 'react'
-import { CircularProgress, withStyles, Typography, Button } from '@material-ui/core';
 import PropTypes from 'prop-types';
 import GalleryMasonry from './GalleryMasonry';
+import { withStyles, Fab, Tooltip } from '@material-ui/core';
+import ArrowUpwardRounded from '@material-ui/icons/ArrowUpwardRounded';
+import ErrorCmp from './Error';
+import Loading from './Loading';
 
 
-const styles = () => ({
+const styles = (theme) => ({
     status: {
         left: '40%',
         position: 'relative'
+    },
+    fab: {
+        margin: theme.spacing.unit,
+        position: 'fixed',
+        bottom: theme.spacing.unit * 2,
+        right: theme.spacing.unit * 2,
     },
     error: {
         textAlign: 'center'
@@ -23,19 +32,19 @@ function Gallery({ galleries = [], loadMore, nextPage = 0, loading, classes, err
             }
 
             <div>
-                {
-                    error && !galleries.length && <Typography className={classes.error} component="h1">
-                        Error loading the gallery, please try again
-                    </Typography>
-                }
-                {
-                    loading ? <CircularProgress className={classes.status} /> :
-                        <Button variant="contained" color="primary" className={classes.status}  onClick={() => loadMore(nextPage)}>
-                            {
-                                galleries.length ? 'Load more' : 'Refresh'
-                            }
-                        </Button>
-                }
+                <Tooltip title="Scroll top" aria-label="Add" placement="top">
+                    <Fab color="primary" aria-label="Add" className={classes.fab} onClick={() => window.scrollTo(0, 0)}>
+                        <ArrowUpwardRounded />
+                    </Fab>
+                </Tooltip>
+                <ErrorCmp className={classes.error} error={error && !galleries.length}>
+                    Error loading the gallery, please try again
+                </ErrorCmp>
+                <Loading className={classes.status} onClick={() => loadMore(nextPage)} loading={loading}>
+                    {
+                        galleries.length ? 'Load more' : 'Refresh'
+                    }
+                </Loading>
             </div>
 
 
