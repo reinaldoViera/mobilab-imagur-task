@@ -3,7 +3,7 @@ import {
 } from '../gallery.actions';
 import {
     fakeGallery
-} from './utils';
+} from '../utils';
 
 describe('Gallery actions ', () => {
     it('should add galleries', () => {
