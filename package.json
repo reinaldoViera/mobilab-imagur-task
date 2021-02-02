@@ -4,8 +4,8 @@
   "private": true,
   "dependencies": {
     "@babel/core": "^7.2.0",
-    "@material-ui/core": "3.6.1",
-    "@material-ui/icons": "3.0.1",
+    "@material-ui/core": "^4.11.3",
+    "@material-ui/icons": "^4.11.2",
     "axios": "^0.21.1",
     "cors": "^2.8.5",
     "express": "^4.16.4",
@@ -24,7 +24,8 @@
     "build": "react-scripts build",
     "serve": "node server/index.js",
     "test": "jest",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "updtr": "updtr --save-exact --use yarn"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -41,7 +42,8 @@
     "babel-jest": "^23.6.0",
     "enzyme": "^3.8.0",
     "enzyme-adapter-react-16": "^1.7.1",
-    "react-test-renderer": "16.8.2"
+    "react-test-renderer": "16.8.2",
+    "updtr": "^3.1.0"
   },
   "jest": {
     "transform": {

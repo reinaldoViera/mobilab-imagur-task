@@ -30,7 +30,7 @@ describe('AppBar component', () => {
     it('should go history back on arrow click', () => {
         const props = setup();
         const el = mount( <MyAppBar { ...props}/>);
-        el.find('IconButton').simulate('click');
+        el.find('button').simulate('click');
         expect(props.history.goBack.mock.calls.length).toEqual(1);        
     });
 })
